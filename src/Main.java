@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -31,11 +29,11 @@ public class Main {
         double sum = getSalarySum(employees);
         System.out.println("Сумма затрат на зарплаты в месяц = " + sum);
 
-        double max = getMaxSalary(employees);
-        System.out.println("Сотрудник с максимальной зарплатой = " + max);
+        Employee max = getMaxSalary(employees);
+        System.out.println("Сотрудник с максимальной зарплатой: " + max.getFullName());
 
-        double min = getMinSalary(employees);
-        System.out.println("Сотрудник с максимальной зарплатой = " + min);
+        Employee min = getMinSalary(employees);
+        System.out.println("Сотрудник с максимальной зарплатой: " + min.getFullName());
 
         double average = getAverageSalary(employees);
         System.out.println("Среднее значение зарплат = " + average);
@@ -57,24 +55,24 @@ public class Main {
         return sum;
     }
 
-    public static double getMaxSalary(Employee[] employees) {
-        double max = employees[0].getSalary();
-        for (Employee employee : employees) {
-            if (max < employee.getSalary()) {
-                max = employee.getSalary();
-            }
-        }
-        return max;
-    }
-
-    public static double getMinSalary(Employee[] employees) {
-        double min = employees[0].getSalary();
-        for (Employee employee : employees) {
-            if (min > employee.getSalary()) {
-                min = employee.getSalary();
+    public static Employee getMaxSalary(Employee[] employees) {
+        Employee min = employees[0];
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() < min.getSalary()) {
+                min = employees[i];
             }
         }
         return min;
+    }
+
+    public static Employee getMinSalary(Employee[] employees) {
+        Employee max = employees[0];
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() > max.getSalary()) {
+                max = employees[i];
+            }
+        }
+        return max;
     }
 
     public static double getAverageSalary(Employee[] employees) {
