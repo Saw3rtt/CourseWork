@@ -55,7 +55,7 @@ public class Main {
         return sum;
     }
 
-    public static Employee getMaxSalary(Employee[] employees) {
+    public static Employee getMinSalary(Employee[] employees) {
         Employee min = employees[0];
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getSalary() < min.getSalary()) {
@@ -65,7 +65,7 @@ public class Main {
         return min;
     }
 
-    public static Employee getMinSalary(Employee[] employees) {
+    public static Employee getMaxSalary(Employee[] employees) {
         Employee max = employees[0];
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getSalary() > max.getSalary()) {
