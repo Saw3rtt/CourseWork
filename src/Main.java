@@ -67,9 +67,9 @@ public class Main {
 
     public static Employee getMaxSalary(Employee[] employees) {
         Employee max = employees[0];
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() > max.getSalary()) {
-                max = employees[i];
+        for (Employee employee : employees) {
+            if (employee.getSalary() > max.getSalary()) {
+                max = employee;
             }
         }
         return max;
